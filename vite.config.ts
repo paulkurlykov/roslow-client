@@ -4,14 +4,6 @@ import { fileURLToPath, URL } from 'node:url'
 
 // https://vite.dev/config/
 export default defineConfig({
-  server: {
-    proxy: {
-      '/uploads': {
-        target: 'http://localhost:3001', // куда пересылать запросы
-        changeOrigin: true,
-      },
-    },
-  },
   build: {
     outDir: "build",
     sourcemap: true

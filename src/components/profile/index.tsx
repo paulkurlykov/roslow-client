@@ -17,8 +17,6 @@ function Profile() {
     const { data: currentUser, isLoading, isSuccess } = useCurrentQuery();
     const location = useLocation();
 
-    console.log(currentUser);
-
     if (!currentUser || location.pathname.includes("/user/")) {
         return null;
     }
@@ -27,30 +25,24 @@ function Profile() {
 
     return (
         <Card className="py-4 w-[302px]">
-            <CardHeader className="pb-0 pt-2 px-4 flex-col items-center" >
-                <Skeleton className="rounded-xl"  isLoaded={isLoading}>
-                    <Image
-                        alt="Card profile"
-                        className="object-cover rounded-xl"
-                        src={avatarUrl}
-                        width={1000}
-                        height={300}
-                    />
-                </Skeleton>
+            <CardHeader className="pb-0 pt-2 px-4 flex-col items-center">
+                <Image
+                    alt="Card profile"
+                    className="object-cover rounded-xl"
+                    src={avatarUrl}
+                    width={1000}
+                    height={300}
+                />
             </CardHeader>
             <CardBody>
-                <Skeleton className="" isLoaded={isLoading} >
-                    <Link to={`/user/${id}`}>
-                        <h4 className="font-bold text-large mb-2">{name}</h4>
-                    </Link>
-                </Skeleton>
+                <Link to={`/user/${id}`}>
+                    <h4 className="font-bold text-large mb-2">{name}</h4>
+                </Link>
 
-                <Skeleton isLoaded={isLoading} >
-                    <p className="text-default-500 flex items-center gap-2">
-                        <MdAlternateEmail />
-                        {email}
-                    </p>
-                </Skeleton>
+                <p className="text-default-500 flex items-center gap-2">
+                    <MdAlternateEmail />
+                    {email}
+                </p>
             </CardBody>
         </Card>
     );

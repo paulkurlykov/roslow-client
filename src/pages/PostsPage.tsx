@@ -2,7 +2,6 @@ import { useGetPostsQuery } from "@/app/services/postsApi"
 import { useGetUserByIdQuery } from "@/app/services/userApi";
 import Card from "@/components/card";
 import CreatePost from "@/components/create-post";
-import { fakeImage } from "@/components/profile";
 
 
 

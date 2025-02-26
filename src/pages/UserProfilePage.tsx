@@ -27,8 +27,6 @@ function UserProfilePage() {
     const { data } = useGetUserByIdQuery(id || "");
     const [followUser] = useFollowUserMutation();
     const [unfollowUser] = useUnFollowUserMutation();
-    const [triggerGetUserByIdQuery] = useLazyGetUserByIdQuery();
-    const [triggerCurrentQuery] = useLazyCurrentQuery();
 
     const dispatch = useDispatch();
 
@@ -39,10 +37,13 @@ function UserProfilePage() {
         []
     );
 
+    console.log('followers');
+    console.log(data?.followers);
+    console.log(currentUser?.followers);
 
-        // console.log(data?.avatarUrl);
-        // console.log(currentUser?.avatarUrl);
-
+    console.log('followings');
+    console.log(data?.following);
+    console.log(currentUser?.following);
 
     const handleFollow = async () => {
         try {
