@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --button-size: 40px;
+  --main-color: #bada55;
+}
+
+.light {
+  --background-primary: #f0f0f0db;
+}
+
+.dark {
+  --background-primary: #202020;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    border: none;
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    /* font-size: 2.4rem;
+    font-family: sans-serif;
+    color: #5a3e2b;
+    font-family: "Quicksand";
+    font-weight: 500; */
+}
+
+main {
+    min-height: 100vh;
+} 
+
+a,
+a:link,
+a:visited,
+a:hover {
+    text-decoration: none;
+}
+
+
+
+ul,
+ul li {
+    list-style: none;
+}
+
+
+input:focus,
+input:active,
+button:focus,
+button:active {
+    outline: none;
+}
+
+
+label {
+    cursor: pointer;
+}
+

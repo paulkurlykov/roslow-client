@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES2020", // Целевая версия ECMAScript
+    "lib": ["DOM", "DOM.Iterable", "ESNext"], // Используемые библиотеки
+    "module": "ESNext", // Использование модулей ESNext
+    "moduleResolution": "Node", // Разрешение модулей в стиле Node.js
+    "strict": true, // Включение строгой проверки типов
+    "jsx": "react-jsx", // Поддержка JSX (React 17+)
+    "esModuleInterop": true, // Упрощение работы с CommonJS-модулями
+    "skipLibCheck": true, // Пропуск проверки типов в библиотеках
+    "forceConsistentCasingInFileNames": true, // Проверка регистра имен файлов
+    "resolveJsonModule": true, // Разрешение импорта JSON-файлов
+    "isolatedModules": true, // Убедитесь, что каждый файл — независимый модуль
+    "noEmit": true, // Не генерировать файлы (Vite сам занимается сборкой)
+    "allowJs": true, // Разрешить использование JavaScript-файлов (полезно при миграции)
+    "checkJs": true, // Проверять типы в JavaScript-файлах
+    "outDir": "./dist", // Папка для сгенерированных файлов (если нужно)
+    "rootDir": "./src", // Корневая папка с исходным кодом
+    "baseUrl": ".", // Базовый путь для разрешения модулей
+    "paths": {
+      "@/*": ["src/*"] // Алиасы для путей (например, @/components/Button)
+    }
+  },
+  "include": ["src", "env.d.ts"], // Какие файлы включать в компиляцию
+  "exclude": ["node_modules", "dist"] // Какие файлы исключить
+}
