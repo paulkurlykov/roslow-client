@@ -45,7 +45,8 @@ function Registration({ setSelected }: RegProps) {
         try {
             console.log("submit");
             const result = await register(data).unwrap();
-            setSelected("login");
+            setSelected("/");
+            navigate('/');
         } catch (err) {
             console.log("err");
             if (hasErrorField(err)) {

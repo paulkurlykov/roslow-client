@@ -30,20 +30,17 @@ function UserProfilePage() {
 
     const dispatch = useDispatch();
 
-    useEffect(
-        () => () => {
-            dispatch(resetUser());
-        },
-        []
-    );
+    // useEffect(
+    //     () => () => {
+    //         dispatch(resetUser());
+    //     },
+    //     []
+    // );
 
-    console.log('followers');
-    console.log(data?.followers);
-    console.log(currentUser?.followers);
+        console.log("RERENDER PROFILE PAGE");
+        console.log("avatar_url: ", data?.avatarUrl);
 
-    console.log('followings');
-    console.log(data?.following);
-    console.log(currentUser?.following);
+
 
     const handleFollow = async () => {
         try {
@@ -112,7 +109,7 @@ function UserProfilePage() {
 
                     <div className="flex gap-2">
                         <CountInfo count={data.followers.length} title="Подписчики" />
-                        <CountInfo count={data.followers.length} title="Подписки" />
+                        <CountInfo count={data.following.length} title="Подписки" />
                     </div>
                 </Card>
             </div>

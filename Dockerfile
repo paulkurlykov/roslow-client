@@ -10,3 +10,12 @@ COPY . .
 
 RUN npm run build
 
+# Этап для Nginx
+FROM nginx:stable-alpine
+
+COPY --from=build /usr/src/app/build /usr/share/nginx/html
+
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+CMD ["nginx", "-g", "daemon off;"]
+
