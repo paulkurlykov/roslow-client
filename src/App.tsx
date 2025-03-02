@@ -16,6 +16,7 @@ import { store } from "./app/store";
 import { AuthGuard } from "./features/authGuard";
 import CurrentPostPage from "./pages/CurrentPostPage";
 import UserProfilePage from "./pages/UserProfilePage";
+import { ToastProvider } from "@heroui/toast";
 
 const router = createBrowserRouter([
     {
@@ -36,11 +37,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "posts/:id",
-                element: <CurrentPostPage/>,
+                element: <CurrentPostPage />,
             },
             {
                 path: "user/:id",
-                element: <UserProfilePage/>,
+                element: <UserProfilePage />,
             },
             {
                 path: "followers",
@@ -61,6 +62,8 @@ function App() {
                 <Provider store={store}>
                     <ThemeProvider>
                         <HeroUIProvider>
+                            <ToastProvider toastOffset={100} placement="top-center" />
+
                             <AuthGuard>
                                 <RouterProvider router={router} />
                             </AuthGuard>

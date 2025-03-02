@@ -8,6 +8,7 @@ type ButtonProps = {
     type?: 'button' | 'submit' | 'reset';
     fullWidth?: boolean;
     color?: "default" | "primary" | "secondary" | "success" | "warning" | "danger";
+    onClick?: () => void
 }
 
 function Button({
@@ -16,7 +17,8 @@ function Button({
     className,
     type,
     fullWidth,
-    color
+    color,
+    onClick
 
 }: ButtonProps) {
     return (
@@ -28,6 +30,7 @@ function Button({
         className={className}
         type={type}
         fullWidth={fullWidth}
+        onPress={onClick}
         >
             {children}
         </NextButton>

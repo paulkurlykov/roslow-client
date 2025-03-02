@@ -6,7 +6,7 @@ console.log(BASE_URL);
 
 export const baseQuery = fetchBaseQuery({
 
-    baseUrl: `${BASE_URL}/api`,
+    baseUrl: `/api`,
     prepareHeaders: (headers, {getState}) => {
         const token = (getState() as RootState).userSliceReducer.token || localStorage.getItem('token')
         if(token) {

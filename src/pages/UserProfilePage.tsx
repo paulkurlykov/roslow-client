@@ -30,16 +30,14 @@ function UserProfilePage() {
 
     const dispatch = useDispatch();
 
-    // useEffect(
-    //     () => () => {
-    //         dispatch(resetUser());
-    //     },
-    //     []
-    // );
+    useEffect(
+        () => () => {
+            dispatch(resetUser());
+        },
+        []
+    );
 
-        console.log("RERENDER PROFILE PAGE");
-        console.log("avatar_url: ", data?.avatarUrl);
-
+    console.log(data);
 
 
     const handleFollow = async () => {
@@ -65,6 +63,7 @@ function UserProfilePage() {
             <div className="flex items-stretch max-h-[500px] w-full gap-4">
                 <Card className="flex flex-col gap-4 items-center text-center p-5">
                     <Image
+                        key={data?.avatarUrl}
                         src={data?.avatarUrl}
                         alt="avatar"
                         width={250}

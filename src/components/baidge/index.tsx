@@ -8,6 +8,7 @@ function Baidge() {
 
     return (
         <User
+            key={user?.avatarUrl}
             avatarProps={{
                 src: user?.avatarUrl,
             }}

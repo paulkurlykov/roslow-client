@@ -82,7 +82,7 @@ function Login({ setSelected }: LoginProps) {
                 <Link size="sm" className="cursor-pointer" onPress={() => setSelected("sign-up")}>
                     Зарегистрируйтесь!
                 </Link>
-                `
+                
             </p>
 
             <div className="flex gap-2 justify-end">

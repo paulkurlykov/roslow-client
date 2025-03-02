@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@heroui/react";
 import { IoLogOutOutline } from "react-icons/io5";
 import Baidge from "../baidge";
+import { Link } from "react-router-dom";
 function Header() {
     const { theme, toggleTheme } = useContext(ThemeContext);
     const isAuthenticated = useSelector(getIsAuthenticated);
@@ -24,7 +25,9 @@ function Header() {
     return (
         <Navbar>
             <NavbarBrand>
-                <p className="font-bold text-inherit">Network Social</p>
+                <Link to={`/`} >
+                <p className="font-bold text-inherit hover:bg-default/40 rounded-2xl px-4 py-4">Network Social</p>
+                </Link>
             </NavbarBrand>
             <NavbarContent  justify="end">
                 <NavbarItem

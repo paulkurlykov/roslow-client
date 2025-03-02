@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { hasErrorField } from "@/utils/has-error-field";
 import ErrorMessage from "@/components/error-message";
 import ControlledInput from "@/components/input.tsx/ControlledInput";
+import { addToast } from "@heroui/toast";
 
 type RegProps = {
     setSelected: (value: string) => void;
@@ -41,22 +42,29 @@ function Registration({ setSelected }: RegProps) {
     const navigate = useNavigate();
     const [error, setError] = useState("");
 
+    const toastDelay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+    const toastDelayTime = 5000;
+
     const onSubmit = async (data: RegFields) => {
         try {
             console.log("submit");
             const result = await register(data).unwrap();
-            setSelected("/");
+            addToast({
+                title: "Проверьте почту!",
+                description: "Активируйте учетную запись, перейдя по ссылке из полученного письма",
+                timeout: toastDelayTime
+              });
+            await toastDelay(toastDelayTime)
             navigate('/');
         } catch (err) {
             console.log("err");
             if (hasErrorField(err)) {
                 setError(err.data.message);
             }
-            console.error("Exception " + err);
         }
     };
 
-    // console.log(formState);
+    console.log(isLoading);
 
 
     return (
@@ -108,8 +116,8 @@ function Registration({ setSelected }: RegProps) {
             </p>
 
             <div className="flex gap-2 justify-end">
-                <Button fullWidth color="primary" type="submit">
-                    Отправить данные
+                <Button fullWidth color="primary" isLoading={isLoading} type="submit">
+                    Зарегистрироваться
                 </Button>
             </div>
         </form>

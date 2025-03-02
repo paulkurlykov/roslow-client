@@ -12,8 +12,9 @@
   "dependencies": {
     "@heroui/button": "^2.2.10",
     "@heroui/react": "^2.6.14",
-    "@heroui/system": "^2.4.7",
-    "@heroui/theme": "^2.4.6",
+    "@heroui/system": "^2.4.11",
+    "@heroui/theme": "^2.4.11",
+    "@heroui/toast": "^2.0.5",
     "@reduxjs/toolkit": "^2.5.1",
     "framer-motion": "^12.4.3",
     "react": "^19.0.0",

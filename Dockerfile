@@ -1,6 +1,6 @@
-FROM node:20 AS build
+FROM node:20
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 COPY package*.json ./
 
@@ -10,12 +10,15 @@ COPY . .
 
 RUN npm run build
 
-# Этап для Nginx
 FROM nginx:stable-alpine
 
-COPY --from=build /usr/src/app/build /usr/share/nginx/html
+COPY /app/build /usr/share/nginx/html
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
+EXPOSE 5050
+
 CMD ["nginx", "-g", "daemon off;"]
+
+
 
