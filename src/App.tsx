@@ -1,17 +1,12 @@
 import { HeroUIProvider } from "@heroui/react";
-import { Button, ButtonGroup } from "@heroui/button";
-import { Input } from "@heroui/react";
-import { useSelector } from "react-redux";
-import { useAppSelector } from "./app/hooks";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { ThemeProvider } from "./components/theme-provider";
-import { StrictMode } from "react";
+import { ThemeProvider } from "./components/theme-provider/index";
 import AppLayout from "./components/layout/AppLayout";
 import AuthPage from "./pages/AuthPage";
-import PostsPage from "@/pages/PostsPage";
+import PostsPage from "./pages/PostsPage";
 import FollowersPage from "./pages/FollowersPage";
 import FollowingPage from "./pages/FollowingPage";
-import { Provider } from "react-redux";
+import {Provider} from "react-redux";
 import { store } from "./app/store";
 import { AuthGuard } from "./features/authGuard";
 import CurrentPostPage from "./pages/CurrentPostPage";
@@ -58,19 +53,17 @@ const router = createBrowserRouter([
 function App() {
     return (
         <>
-            <StrictMode>
-                <Provider store={store}>
-                    <ThemeProvider>
-                        <HeroUIProvider>
-                            <ToastProvider toastOffset={100} placement="top-center" />
+            <Provider store={store}>
+                <ThemeProvider>
+                    <HeroUIProvider>
+                        <ToastProvider toastOffset={100} placement="top-center" />
 
-                            <AuthGuard>
-                                <RouterProvider router={router} />
-                            </AuthGuard>
-                        </HeroUIProvider>
-                    </ThemeProvider>
-                </Provider>
-            </StrictMode>
+                        <AuthGuard>
+                            <RouterProvider router={router} />
+                        </AuthGuard>
+                    </HeroUIProvider>
+                </ThemeProvider>
+            </Provider>
         </>
     );
 }
